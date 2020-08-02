@@ -1,11 +1,37 @@
 import login from '../pages/login'
+import notFound from '../pages/login/404'
+import admin from '../pages/admin'
+import about from '../pages/admin/about'
 
-const routes=[
-    // name:''
-    {
-path:'/login',
-    component:login
-}
+const loginRoutes = [
+  // name:''
+  {
+    path: '/404',
+    component: notFound
+  },
+  {
+    path: '/login',
+    component: login
+  }
 ]
-export default routes
-{/* <Route component={login} path="/logins"/> */}
+const routes = [
+  // name:''
+  {
+    path: '/404',
+    component: notFound
+  },
+  {
+    path: '/login',
+    component: login
+  },
+  {
+    path: '/admin/index',
+    component: admin
+  },
+  {
+    path: '/admin/about',
+    component: about
+  }
+]
+export { loginRoutes, routes }
+{ /* <Route component={login} path="/logins"/> */ }
