@@ -1,0 +1,51 @@
+export const menuList=[
+{
+    key:'/admin/home',
+    icon:'',
+    title:'首页',
+},
+{
+    key:'products',
+    icon:'',
+    title:'商品',
+    children:[
+        {
+            key:'/admin/type',
+            icon:'',
+            title:'品类管理',
+        },
+        {
+            key:'/admin/list',
+            icon:'',
+            title:'商品管理',
+        }
+    ]
+},
+{
+    key:'/admin/user',
+    icon:'',
+    title:'用户管理',
+},
+{
+    key:'/admin/role',
+    icon:'',
+    title:'角色管理',
+},
+{
+    key:'charts',
+    icon:'',
+    title:'图形图表',
+    children:[
+        {
+            key:'/admin/bar',
+            icon:'',
+            title:'柱形图'
+        },
+        {
+            key:'/admin/line',
+            icon:'',
+            title:'折线图',
+        }
+    ]
+},
+]

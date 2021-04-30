@@ -1,9 +1,9 @@
 import React from 'react'
-function pageNotFound(){
+function Line(){
     return(
         <>
-            404
+            line
         </>
     )
 }
-export default pageNotFound
+export default Line

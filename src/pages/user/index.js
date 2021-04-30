@@ -1,9 +1,9 @@
 import React from 'react'
-function pageNotFound(){
+function User(){
     return(
         <>
-            404
+            user
         </>
     )
 }
-export default pageNotFound
+export default User

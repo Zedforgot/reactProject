@@ -1,9 +1,9 @@
 import React from 'react'
-function pageNotFound(){
+function Bar(){
     return(
         <>
-            404
+            bar
         </>
     )
 }
-export default pageNotFound
+export default Bar

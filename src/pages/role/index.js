@@ -1,9 +1,9 @@
 import React from 'react'
-function pageNotFound(){
+function Role(){
     return(
         <>
-            404
+            role
         </>
     )
 }
-export default pageNotFound
+export default Role

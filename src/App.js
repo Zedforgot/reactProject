@@ -1,43 +1,38 @@
 import React from 'react';
-import {Button} from 'antd'
-import  {routes} from './router'
-import admin from './pages/admin'
-import login from './pages/login'
-import notFound from './pages/login/404'
-import {Route,Switch,BrowserRouter,Redirect} from 'react-router-dom'
+import {Route,Redirect,Switch} from 'react-router-dom'
+import {mainRoutes} from './router'
+import {Layout} from 'antd'
+import Navigation from './App/navigation'
+import Header from './App/header'
+import Content from './App/content'
+import Footer from './App/footer'
+import  './index.less'
+import {getItem} from './utils/sessionUtils'
 
-function App(props){
-        return (
-            <>
-            {/* <Route path/> */}
-            <BrowserRouter>
-            <Switch>
-                
-    {routes.map(item => <Route path={item.path} component={item.component} key={item.path}></Route>)}
-             {sessionStorage.getItem('tok')?
-             (
-                 <Switch>
-    <Redirect from='/admin' to='/admin/index'/>
-    <Redirect from='/' exact to='/admin/index'/>
-    <Redirect to='/404'/>
-    </Switch>
-             )
-             :
-             <Switch>
-             <Redirect from='/admin' to='/login'/>
-    <Redirect from='/' exact to='/login'/>
-    <Redirect to='/404'/>
-    </Switch>
-            }
-            
-            
-            
-
-            </Switch>
-            </BrowserRouter>
-</>
-    )
-    
-
+function App(){
+  
+    return (
+    <Layout className='App' >
+      <Navigation />
+      <Layout>
+        <Header/>
+        <Content>
+          <Switch>
+        {/* 进入APP后，检查登陆状态，未登陆状态下默认跳到login页面 */}
+        {!getItem('isLogin')&&<Redirect  from='/admin'  to='/login'/>}
+          {/* 进入APP后，登陆状态下默认加载home主页面 */}
+          <Redirect  from='/admin' exact to='/admin/home'/>
+          {mainRoutes.map((item,index)=>{//定义各页面路由
+          return <Route path={item.path} key={index} component={item.component}/>
+          })}
+          {/* 各定义路由外进入404页面 */}
+          <Redirect  from='/'  to='/404'/>
+          </Switch>
+        </Content>
+        <Footer/>
+      </Layout>
+    </Layout>
+      );
 }
+
 export default App;
